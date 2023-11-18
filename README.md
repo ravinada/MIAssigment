@@ -1,4 +1,4 @@
-# Landscape Activity with Two Fragments
+![Screenshot_20231119_011417](https://github.com/ravinada/MIAssigment/assets/49580276/90672c7a-0df7-4fd6-9bb3-fff5293a20a9)# Landscape Activity with Two Fragments
 
 ## Overview
 
@@ -29,11 +29,9 @@ This Android application features an activity (`LandscapeActivity`) designed for
    - Selected elements are removed from the source fragment's recycler view.
 
 ## Screenshot
-![Screenshot_20231119_002641](https://github.com/ravinada/MIAssigment/assets/49580276/8b48cc5e-46db-4b76-8647-eb5b84fe98aa)
+![Screenshot_20231119_011417](https://github.com/ravinada/MIAssigment/assets/49580276/0be96a61-7141-4d87-9175-fcc6b98a277b)
 
-![Screenshot_20231119_002727](https://github.com/ravinada/MIAssigment/assets/49580276/8d8052ab-3f07-49ae-b887-85b5ca5eb5a3)
-
-![Screenshot_20231119_002738](https://github.com/ravinada/MIAssigment/assets/49580276/64ef66c8-77f5-457e-84cf-de432ee46c32)
+![Screenshot_20231119_002727](https://github.com/ravinada/MIAssigment/assets/49580276/16c93634-c468-4907-824c-fbe62b2c9059)
 
 ## Implementation Details
 
