@@ -28,6 +28,13 @@ This Android application features an activity (`LandscapeActivity`) designed for
    - Elements moved are appended to the end of the target fragment's recycler view.
    - Selected elements are removed from the source fragment's recycler view.
 
+## Screenshot
+![Screenshot_20231119_002641](https://github.com/ravinada/MIAssigment/assets/49580276/8b48cc5e-46db-4b76-8647-eb5b84fe98aa)
+
+![Screenshot_20231119_002727](https://github.com/ravinada/MIAssigment/assets/49580276/8d8052ab-3f07-49ae-b887-85b5ca5eb5a3)
+
+![Screenshot_20231119_002738](https://github.com/ravinada/MIAssigment/assets/49580276/64ef66c8-77f5-457e-84cf-de432ee46c32)
+
 ## Implementation Details
 
 - **Language:** Kotlin
