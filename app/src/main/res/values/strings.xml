@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name"> Mansa Infotech</string>
+    <string name="move_left">Move Left</string>
+    <string name="move_right">Move Right</string>
 </resources>

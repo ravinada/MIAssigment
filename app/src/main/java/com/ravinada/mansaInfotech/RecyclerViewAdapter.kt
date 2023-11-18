@@ -5,38 +5,49 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.ravinada.mansaInfotech.databinding.ItemLayoutBinding
 
 class RecyclerViewAdapter(
     private val dataSet: MutableList<String>,
-    private var onItemClick: (Int) -> Unit,
+    private var onItemSelectionChanged: (List<String>) -> Unit,
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private val selectedItems = HashSet<Int>()
 
-        val textView: TextView = view.findViewById(R.id.textView)
+    class ViewHolder(binding: ItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        val textView: TextView = binding.textView
+        val checkMark: AppCompatImageView = binding.checkMark
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return ViewHolder(view)
+        val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataSet[position]
         holder.textView.text = item
 
+        val isSelected = selectedItems.contains(position)
+        holder.checkMark.visibility = if (isSelected) View.VISIBLE else View.GONE
+
         holder.itemView.setOnClickListener {
-            onItemClick.invoke(holder.layoutPosition)
+            if (isSelected) {
+                selectedItems.remove(position)
+            } else {
+                selectedItems.add(position)
+            }
+
+            notifyItemChanged(position)
+            onItemSelectionChanged.invoke(getSelectedItems())
         }
     }
 
     override fun getItemCount(): Int {
         return dataSet.size
-    }
-
-    fun getItem(position: Int): String {
-        return dataSet[position]
     }
 
     fun removeItems(items: List<String>) {
@@ -54,5 +65,14 @@ class RecyclerViewAdapter(
         dataSet.addAll(items)
         notifyDataSetChanged()
     }
-}
 
+    fun getSelectedItems(): List<String> {
+        return selectedItems.map { dataSet[it] }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun clearSelection() {
+        selectedItems.clear()
+        notifyDataSetChanged()
+    }
+}

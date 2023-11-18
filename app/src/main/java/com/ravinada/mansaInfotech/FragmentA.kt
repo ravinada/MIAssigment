@@ -14,7 +14,6 @@ class FragmentA : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var adapter: RecyclerViewAdapter
-    private val selectedItems = mutableListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,18 +31,14 @@ class FragmentA : Fragment() {
     private fun initRecyclerView() {
         val layoutManager = LinearLayoutManager(requireActivity())
         binding.recyclerViewA.layoutManager = layoutManager
-        adapter = RecyclerViewAdapter((0..9).map { it.toString() }.toMutableList()) { position ->
-            val selectedItem = adapter.getItem(position)
-            if (!selectedItems.contains(selectedItem)) {
-                selectedItems.add(selectedItem)
-            }
+        adapter = RecyclerViewAdapter((0..9).map { it.toString() }.toMutableList()) {
+            // if needed implement logic for multiple item selection
         }
         binding.recyclerViewA.adapter = adapter
     }
 
     fun moveSelectedItemsToFragmentB() {
-        (requireActivity() as? MainActivity)?.moveItemsToFragmentB(selectedItems)
-        selectedItems.clear()
+        (requireActivity() as? MainActivity)?.moveItemsToFragmentB(adapter.getSelectedItems())
     }
 
     fun removeItems(items: List<String>) {
@@ -52,6 +47,10 @@ class FragmentA : Fragment() {
 
     fun addItems(items: List<String>) {
         adapter.addItems(items)
+    }
+
+    fun clearSelection() {
+        adapter.clearSelection()
     }
 
     override fun onDestroyView() {

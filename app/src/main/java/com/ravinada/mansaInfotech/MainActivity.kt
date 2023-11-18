@@ -38,10 +38,13 @@ class MainActivity : AppCompatActivity() {
     fun moveItemsToFragmentB(items: List<String>) {
         fragmentB.addItems(items)
         fragmentA.removeItems(items)
+        fragmentA.clearSelection()
+        fragmentB.clearSelection()
     }
 
     fun moveItemsToFragmentA(items: List<String>) {
         fragmentA.addItems(items)
         fragmentB.removeItems(items)
-    }
+        fragmentA.clearSelection()
+        fragmentB.clearSelection()    }
 }
