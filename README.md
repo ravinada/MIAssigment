@@ -1,4 +1,4 @@
-![Screenshot_20231119_011417](https://github.com/ravinada/MIAssigment/assets/49580276/90672c7a-0df7-4fd6-9bb3-fff5293a20a9)# Landscape Activity with Two Fragments
+# Landscape Activity with Two Fragments
 
 ## Overview
 
